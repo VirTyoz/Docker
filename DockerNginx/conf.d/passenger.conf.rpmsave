@@ -1,0 +1,20 @@
+# To enable the Phusion Passenger application server (www.phusionpassenger.com),
+# install the following package:
+#
+#   yum install passenger
+#
+# Then uncomment these options:
+
+passenger_root  /home/development/.rvm/gems/ruby-2.3.0/gems/passenger-5.0.30;
+passenger_ruby /home/development/.rvm/gems/ruby-2.3.0/wrappers/ruby;
+passenger_instance_registry_dir /tmp;
+passenger_nodejs /usr/bin/node;
+
+passenger_max_pool_size 1;
+passenger_min_instances 1;
+passenger_pool_idle_time 10;
+passenger_max_instances_per_app 1;
+passenger_spawn_method smart;
+passenger_max_preloader_idle_time 0;
+passenger_max_requests 1000;
+

@@ -1,0 +1,41 @@
+server {
+    listen       80;
+    server_name  redmine.evaron.ru www.redmine.evaron.ru;
+
+    gzip on;
+    gzip_disable "msie6";
+    gzip_comp_level 6;
+    gzip_min_length 1100;
+    gzip_buffers 16 8k;
+    gzip_proxied any;
+    gzip_types text/plain application/xml
+       application/javascript
+       text/css
+       text/js
+       text/xml
+       application/x-javascript
+       text/javascript
+       application/json
+       application/xml+rss;	
+    
+    client_max_body_size 10M;
+    client_body_buffer_size 512k;    
+
+    charset utf-8;
+    access_log  /var/log/nginx/redmine.access.log  combined;
+    error_log   /var/log/nginx/redmine.error.log;
+    root   /home/www-data/redmine/public/;
+    passenger_enabled on;
+    rails_env development;
+
+   location / {
+	
+	}
+	
+   location ^~ /assets/ {
+      gzip_static on;
+      expires max;
+      add_header Cache-Control public;
+    }
+ }
+

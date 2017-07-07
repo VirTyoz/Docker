@@ -1,0 +1,14 @@
+FROM php:fpm
+
+RUN set -ex \
+&& docker-php-ext-install pdo pdo_mysql \
+&& ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+
+#COPY ./www.conf /usr/local/etc/php-fpm.d/www.conf
+#COPY ./php.ini /ust/local/etc/php/php.ini
+VOLUME /home/www-data
+COPY ./www-data /home/www-data
+
+RUN chown -R www-data:www-data /home/www-data
+
+#EXPOSE 9000
