@@ -1,3 +1,4 @@
 FROM fluent/fluentd:debian
 
-RUN gem install fluent-plugin-elasticsearch
+RUN gem install fluent-plugin-elasticsearch \
+&& ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
