@@ -1,7 +1,6 @@
 FROM php:fpm
 
-RUN set -ex \
-&& docker-php-ext-install pdo pdo_mysql \
+RUN docker-php-ext-install pdo pdo_mysql \
 && ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 #COPY ./www.conf /usr/local/etc/php-fpm.d/www.conf
