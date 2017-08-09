@@ -1,3 +1,3 @@
 docker build -t nginx/all:latest -f DockerFileNginx .
 
-docker run -d --name nginx -p 80:8080 --net silvana --log-driver=fluentd --log-opt fluentd-address=ip:23224 /var/log/nginx:/var/log/nginx -v /home/www-data:/home/www-data nginx/all:latest
+docker run -d --name nginx -p 80:8080 --net silvana --log-driver=fluentd --log-opt fluentd-address=172.18.0.2:24224 /var/log/nginx:/var/log/nginx --volumes-from php-fpm nginx/all:latest

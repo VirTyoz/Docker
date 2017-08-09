@@ -6,7 +6,9 @@ RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
 && ln -fs /dev/stdout /var/log/nginx/holidays.acess.log \
 && ln -fs /dev/stderr /var/log/nginx/holidays.error.log \
 && ln -fs /dev/stdout /var/log/nginx/tools.acess.log \
-&& ln -fs /dev/stderr /var/log/nginx/tools.error.log
+&& ln -fs /dev/stderr /var/log/nginx/tools.error.log \
+&& ln -fs /dev/stdout /var/log/nginx/zabbix.access.log \
+&& ln -fs /dev/stderr /var/log/nginx/zabbix.error.log
 #&& timedatectl set-timezone Europe/Moscow
 
 #COPY ./www-data /code
