@@ -12,7 +12,7 @@ $DB['PASSWORD'] = '***REMOVED***';
 // Schema name. Used for IBM DB2 and PostgreSQL.
 $DB['SCHEMA'] = '';
 
-$ZBX_SERVER      = '192.168.0.230';
+$ZBX_SERVER      = 'zabbix-server';
 $ZBX_SERVER_PORT = '10051';
 $ZBX_SERVER_NAME = 'Silvana-Server';
 
