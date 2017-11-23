@@ -1,16 +1,7 @@
 FROM mariadb:latest
-
-#ENV TIMEZONE Europe/Moscow
-
 RUN rm -rf /var/lib/mysql/* \
 && rm /etc/mysql/conf.d/mariadb.cnf \ 
 && ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
-&& ln -fs /dev/stdout /var/log/mariadb/mysql_slow.log \
-&& ln -fs /dev/stderr /var/log/mariadb/mysql_error.log
-
-COPY ./my.cnf /etc/mysql/my.cnf
-COPY ./conf.d/client.cnf /etc/mysql/conf.d/client.cnf
-COPY ./conf.d/server.cnf /etc/mysql/conf.d/server.cnf
-
-#EXPOSE 3306
-#CMD ls /var/log/mysql
+COPY ./my.cnf /etc/mysql/
+COPY ./conf.d/client.cnf /etc/mysql/conf.d/
+COPY ./conf.d/server.cnf /etc/mysql/conf.d/

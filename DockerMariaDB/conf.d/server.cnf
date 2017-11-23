@@ -38,10 +38,10 @@ innodb_flush_method = O_DIRECT
 #innodb_force_recovery = 1
 
 #FOR REPLICATION
-server_id=1
-log-basename=master
-skip-networking= 0
-bind-address=0.0.0.0
+#server_id=1
+#log-basename=master
+#skip-networking= 0
+#bind-address=0.0.0.0
 
 #
 # * Basic Settings
