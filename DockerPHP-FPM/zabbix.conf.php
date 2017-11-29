@@ -4,7 +4,7 @@ global $DB;
 
 $DB['TYPE']     = 'MYSQL';
 $DB['SERVER']   = 'mariadb-master';
-$DB['PORT']     = '0';
+$DB['PORT']     = '3306';
 $DB['DATABASE'] = 'zabbix';
 $DB['USER']     = 'zabbix';
 $DB['PASSWORD'] = 'LTV6aCAgvGUV6Udp';
