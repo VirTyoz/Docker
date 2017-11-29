@@ -1,4 +1,4 @@
 docker build -t mariadb/all:latest -f DockerFileMariaDB .
 
-docker run -d --name mariadb -p 3306:3306 --net silvana --log-driver=fluentd --log-opt fluentd-address=172.18.0.2:24224 --log-opt tag="docker.silvana.{{.Name}}" -v /var/lib/mysql:/var/lib/mysql -v /var/log/mariadb:/var/log/mysql mariadb/all:latest
+docker run -d --name mariadb -p 3306:3306 --net silvana --log-driver=fluentd --log-opt fluentd-address=172.18.0.200:24224 --log-opt tag="docker.silvana.{{.Name}}" -v /var/lib/mysql:/var/lib/mysql -v /var/log/mariadb:/var/log/mysql mariadb/all:latest
 

@@ -14,5 +14,5 @@ RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev" \
            /home/fluent/.gem/ruby/2.3.0/cache/*.gem \
 && ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
 && cd /fluentd/log \
-&& mkdir nginx php-fpm mariadb zabbix 
+&& mkdir nginx php-fpm mariadb zabbix bind 
 COPY ./docker.conf /fluentd/etc/
