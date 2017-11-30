@@ -1,6 +1,15 @@
 //
 // Do any local configuration here
 //
+zone "evaron.local" {
+	type master;
+	file "/etc/bind/db.evaron.local";
+};
+
+zone "0.168.192.in-addr.arpa" {
+	type master;
+	file "/etc/bind/db.0.168.192.local";
+};
 
 // Consider adding the 1918 zones here, if they are not used in your
 // organization
