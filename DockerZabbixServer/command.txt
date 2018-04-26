@@ -4,4 +4,4 @@ docker run -d --name zabbix-server --net silvana -p 10051:10051 --log-driver=flu
 -e DB_SERVER_HOST="mariadb-master"  \
 -e MYSQL_USER="zabbix" \
 -e MYSQL_PASSWORD="LTV6aCAgvGUV6Udp" \
- zabbix/server:latest
+ zabbix-server/all:latest
