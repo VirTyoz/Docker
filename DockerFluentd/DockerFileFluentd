@@ -1,5 +1,4 @@
 FROM fluent/fluentd:debian
-
 RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev" \  
 && apt-get update \
 && apt-get install -y --no-install-recommends $buildDeps \
@@ -13,6 +12,9 @@ RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev" \
 && rm -rf /var/lib/apt/lists/* \
            /home/fluent/.gem/ruby/2.3.0/cache/*.gem \
 && ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
-&& cd /fluentd/log \
-&& mkdir nginx php-fpm mariadb zabbix bind 
+#&& cd /fluentd/log 
+#&& mkdir nginx php-fpm mariadb zabbix bind \
+&& rm /bin/entrypoint.sh
+COPY entrypoint.sh /bin/
+RUN chmod +x /bin/entrypoint.sh
 COPY ./docker.conf /fluentd/etc/

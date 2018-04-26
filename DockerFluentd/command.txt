@@ -1,3 +1,3 @@
 docker build -t fluentd/all:latest -f DockerFileFluentd .
 
-docker run -d --name fluentd -p 24224:24224 -p 24224:24224/udp --net silvana --ip=172.18.0.200 -e FLUENTD_CONF=docker.conf fluentd/all:latest
+docker run -d --name fluentd -p 24224:24224 -p 24224:24224/udp --net silvana --ip=172.18.0.200 -e FLUENTD_CONF=docker.conf -v=/var/log/fluentd:/fluentd/log fluentd/all:latest
