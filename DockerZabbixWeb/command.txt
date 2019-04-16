@@ -1,9 +1,9 @@
-docker build -t zabbix/web:la***REMOVED*** DockerFileZabbix .
+docker build -t zabbix/web:laLTV6aCAgvGUV6Udp DockerFileZabbix .
 
 docker run -d --name zabbix-web --net Silvana \
 -e DB_SERVER_HOST="mariadb-master"  \
 -e MYSQL_USER="zabbix" \
--e MYSQL_PASSWORD="***REMOVED***" \
+-e MYSQL_PASSWORD="" \
 -e ZBX_SERVER_HOST="127.0.01" \
 -e PHP_TZ="Europe/Moscow" \
  zabbix/web:latest

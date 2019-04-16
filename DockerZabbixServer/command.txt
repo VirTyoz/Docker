@@ -3,5 +3,5 @@ docker build -t zabbix-server/all:latest -f DockerFileZabbix .
 docker run -d --name zabbix-server --net silvana -p 10051:10051 --log-driver=fluentd --log-opt fluentd-address=172.18.0.200:24224 --log-opt tag="docker.silvana.{{.Name}}" \
 -e DB_SERVER_HOST="mariadb-master"  \
 -e MYSQL_USER="zabbix" \
--e MYSQL_PASSWORD="***REMOVED***" \
+-e MYSQL_PASSWORD="" \
  zabbix-server/all:latest

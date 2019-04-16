@@ -7,7 +7,7 @@ $DB['SERVER']   = 'mariadb-master';
 $DB['PORT']     = '3306';
 $DB['DATABASE'] = 'zabbix';
 $DB['USER']     = 'zabbix';
-$DB['PASSWORD'] = '***REMOVED***';
+$DB['PASSWORD'] = '';
 
 // Schema name. Used for IBM DB2 and PostgreSQL.
 $DB['SCHEMA'] = '';

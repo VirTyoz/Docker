@@ -7,7 +7,7 @@
 [client]
 default-character-set = utf8
 user = root
-password = xdatabase
+password =
 
 port            = 3306
 socket          = /var/run/mysqld/mysqld.sock
@@ -16,4 +16,3 @@ socket          = /var/run/mysqld/mysqld.sock
 # If you use the same .cnf file for MySQL and MariaDB,
 # use it for MariaDB-only client options
 [client-mariadb]
-
