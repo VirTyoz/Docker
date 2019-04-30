@@ -1,0 +1,18 @@
+FROM centos:latest
+RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+RUN yum -y install epel-release net-tools \
+&& yum -y update
+RUN yum -y install openvpn
+RUN mkdir /etc/openvpn/ccd \
+&& mkdir /var/log/openvpn
+RUN ln -s /dev/stdout /var/log/openvpn/openvpn-status.log \
+&& ln -s /dev/stderr /var/log/openvpn/openvpn.log
+EXPOSE 1194/udp
+COPY ./server.conf /etc/openvpn/
+COPY ./keys/ca.crt /etc/openvpn/
+COPY ./keys/server.crt /etc/openvpn/
+COPY ./keys/server.key /etc/openvpn/
+COPY ./keys/dh.pem /etc/openvpn/
+#COPY ./client /etc/openvpn/ccd/
+#CMD ["/usr/sbin/openvpn","--cd /etc/openvpn/","--config server.conf"]
+CMD ["/usr/sbin/openvpn","--cd", "/etc/openvpn/","--config", "server.conf"]
