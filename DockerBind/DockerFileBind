@@ -1,8 +1,9 @@
 FROM ubuntu:latest
-RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
-&& apt-get update && apt-get -y install bind9 bind9utils \
-&& cd /etc/bind && rm named.conf.options named.conf.local \
-&& mkdir /var/log/bind && touch /var/log/bind/bind.log
+RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime && \
+apt-get -y install bind9 bind9utils && \
+apt-get autoremove && apt-get clean && \
+cd /etc/bind && rm named.conf.options named.conf.local && \
+mkdir /var/log/bind && touch /var/log/bind/bind.log
 COPY ./bind/named.conf.options /etc/bind/
 COPY ./bind/named.conf.local /etc/bind
 COPY ./bind/db.evaron.local /etc/bind

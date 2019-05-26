@@ -3,11 +3,11 @@ FROM centos:latest
 LABEL maintainer="Peter Galonza <p.galonza@evaron.ru>"
 
 RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-RUN yum --assumeyes --setopt=tsflags=nodocs install epel-release net-tools \
-&& yum --assumeyes update
+RUN yum --assumeyes --setopt=tsflags=nodocs install epel-release net-tools && \
+yum --assumeyes update
 RUN yum --assumeyes --setopt=tsflags=nodocs install openvpn
-RUN mkdir /etc/openvpn/ccd \
-&& mkdir /var/log/openvpn
+RUN mkdir /etc/openvpn/ccd && \
+mkdir /var/log/openvpn
 RUN ln -s /dev/stderr /var/log/openvpn/openvpn.log
 
 EXPOSE 1194/tcp

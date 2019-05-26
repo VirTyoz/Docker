@@ -1,4 +1,4 @@
-FROM zabbix/zabbix-web-nginx-mysql:ubuntu-latest
+FROM zabbix/zabbix-web-nginx-mysql:centos-4.2-latest
 
-RUN sed -i 's/80/8888/g' /etc/zabbix/nginx.conf \
-&& ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+RUN sed -i 's/80/8888/g' /etc/zabbix/nginx.conf && \
+ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime

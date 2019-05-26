@@ -1,10 +1,9 @@
-FROM php:5.6-fpm
-RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-RUN apt-get update && apt-get upgrade -y \
-&& apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev locales locales-all ttf-dejavu-core patch \
-&& apt-get autoremove && apt-get clean
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-&& docker-php-ext-install pdo pdo_mysql mysqli bcmath sockets gd gettext
+FROM php:7.3-fpm
+RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime && \
+apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev locales locales-all ttf-dejavu-core patch && \
+apt-get autoremove && apt-get clean
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
+docker-php-ext-install pdo pdo_mysql mysqli bcmath sockets gd gettext
 ADD ./php.ini /usr/local/etc/php/php.ini
 ADD ./www-data /home/www-data
 ADD ./zabbix.conf.php /home/www-data/zabbix/conf/
@@ -12,5 +11,5 @@ ADD ./font-config /tmp/font-config
 RUN cd /home/www-data/zabbix && \
 update-alternatives --install /home/www-data/zabbix/fonts/graphfont.ttf \
 zabbix-frontend-font /usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf 10 && \
-chown -R www-data:www-data /home/www-data 
+chown -R www-data:www-data /home/www-data
 VOLUME /home/www-data

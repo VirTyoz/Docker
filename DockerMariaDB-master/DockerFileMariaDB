@@ -1,7 +1,7 @@
-FROM mariadb:latest
-RUN rm -rf /var/lib/mysql/* \
-&& rm /etc/mysql/conf.d/mariadb.cnf \ 
-&& ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
+FROM mariadb:10.3
+RUN rm -rf /var/lib/mysql/* && \
+rm /etc/mysql/conf.d/mariadb.cnf && \
+ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 COPY ./my.cnf /etc/mysql/
 COPY ./conf.d/client.cnf /etc/mysql/conf.d/
 COPY ./conf.d/server.cnf /etc/mysql/conf.d/
